@@ -20,7 +20,7 @@ public class MetricsController {
     private MetricVariables metricVariables;
 
     /**
-     * Полкчить колическов успешных отправок продуктов в магазин
+     * Получить колическов успешных отправок продуктов в магазин
      * @return
      */
     @GetMapping("/count_put")
@@ -32,7 +32,7 @@ public class MetricsController {
     }
 
     /**
-     * Полкчить колическов отправок продуктов в магазин
+     * Получить колическов отправок продуктов в магазин
      * @return
      */
     @GetMapping("/count_try_put")
@@ -44,7 +44,7 @@ public class MetricsController {
     }
 
     /**
-     * Полкчить среднее время выполнения запроса отправки продуктов в магазин
+     * Получить среднее время выполнения запроса отправки продуктов в магазин
      * @return
      */
     @GetMapping("/process_time")
