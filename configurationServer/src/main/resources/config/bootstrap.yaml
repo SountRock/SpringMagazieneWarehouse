@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: configurationServer
+  profiles:
+    active: native
+
+eureka:
+  instance:
+    nonSecurePort: 8888
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:9090/eureka
+
+cloud:
+  gateway:
+    routes:
+      - id: magazine
+        uri: http://localhost:8080/
+        predicates:
+          - Path=/magazineService/**
+      - id: warehouse
+        uri: http://localhost:8090/
+        predicates:
+          - Path=/warehouseService/**

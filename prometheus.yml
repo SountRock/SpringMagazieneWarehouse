@@ -1,0 +1,85 @@
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+# - "first_rules.yml"
+# - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "SelfStatus"
+    static_configs:
+      - targets: ["localhost:9090"]
+      
+  - job_name: "Prometheus"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["localhost:8761"]
+        labels:  { __param_module: "eureka" }
+      - targets: ["localhost:8765"]
+        labels:  { __param_module: "gateway" }
+      - targets: ["localhost:8080"]
+        labels:  { __param_module: magazine }
+      - targets: ["localhost:8090"]
+        labels:  { __param_module: warehouse }
+
+  - job_name: "Metrics"
+    metrics_path: "/actuator/metrics"
+    static_configs:
+      - targets: ["localhost:8761"]
+        labels:  { __param_module: "eureka" }
+      - targets: ["localhost:8765"]
+        labels:  { __param_module: "gateway" }
+
+  - job_name: "HttpTrace"
+    metrics_path: "/actuator/httpexchanges"
+    static_configs:
+      - targets: ["localhost:8080"]
+        labels:  { __param_module: magazine }
+      - targets: ["localhost:8090"]
+        labels:  { __param_module: warehouse }
+
+#Мне так легче было проверять результат своих метрик
+  - job_name: "CountPut"
+    metrics_path: "/myMetrics/count_put"
+    static_configs:
+      - targets: ["localhost:8080"]
+        labels:  { __param_module: magazine_buy_success_count }
+      - targets: ["localhost:8090"]
+        labels:  { __param_module: warehouse_push_on_magazine_success_count }
+  
+  - job_name: "TryCountPut"
+    metrics_path: "/myMetrics/count_try_put"
+    static_configs:
+      - targets: ["localhost:8080"]
+        labels:  { __param_module: magazine_buy_count }
+      - targets: ["localhost:8090"]
+        labels:  { __param_module: warehouse_push_on_magazine_count }
+  
+  - job_name: "TimeProcessPut"
+    metrics_path: "/myMetrics/process_time"
+    static_configs:
+      - targets: ["localhost:8080"]
+        labels:  { __param_module: magazine_buy_time }
+      - targets: ["localhost:8090"]
+        labels:  { __param_module: warehouse_push_on_magazine_time }
+ 
+  
+
+
+    
+      
+  

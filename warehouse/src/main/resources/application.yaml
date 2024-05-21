@@ -1,0 +1,15 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: warehouse
+
+links:
+  magazineLink: "http://localhost:8080/magazineService"
+  #magazineLink: "III"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["httpexchanges", "prometheus", "health"]
