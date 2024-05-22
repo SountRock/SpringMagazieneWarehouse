@@ -1,4 +1,4 @@
-#Добавлен MagazineControllerAdapter 
+# Добавлен MagazineControllerAdapter 
 Обращение по ссылке http://localhost:8765/MS (http://localhost:8080/MS). Имеет дополнительные функции для магазина такие как: получить продукт по id и работа с корщиной
 
 # Метрики
