@@ -19,7 +19,9 @@ public class GateWayMagNWareApplication {
 				.route("magazine",r->r.path("/magazineService/**")
 						.uri("http://localhost:8080/"))
 				.route("warehouse",r->r.path("/warehouseService/**")
-						.uri("http://localhost:8090/")).build();
+						.uri("http://localhost:8090/"))
+				.route("magazineAdvance",r->r.path("/MS/**")
+						.uri("http://localhost:8080/")).build();
 	}
 
 }

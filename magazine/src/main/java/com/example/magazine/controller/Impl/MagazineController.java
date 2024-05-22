@@ -1,7 +1,9 @@
-package com.example.magazine.controller;
+package com.example.magazine.controller.Impl;
 
+import com.example.magazine.controller.MagazineControllerI;
 import com.example.magazine.domain.Product;
 import com.example.magazine.service.MagazineService;
+import com.example.magazine.service.RequestFileGateWay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,22 +13,25 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/magazineService")
-public class MagazineController {
+public class MagazineController implements MagazineControllerI {
     @Autowired
     private MagazineService service;
 
     @GetMapping("/list")
+    @Override
     public ResponseEntity<List<Product>> getAllProduct(){
         return service.getAllProduct();
     }
 
     @PutMapping("buyId/{id}/{sum}")
-    public ResponseEntity buyId(@PathVariable("id") Long id, @PathVariable("sum") Double sum){
+    @Override
+    public ResponseEntity buyById(@PathVariable("id") Long id, @PathVariable("sum") Double sum){
         return service.buyProduct(id, sum);
     }
 
     @PutMapping("buy/{name}/{sum}")
-    public ResponseEntity buy(@PathVariable("name") String name, @PathVariable("sum") Double sum) {
+    @Override
+    public ResponseEntity buyByName(@PathVariable("name") String name, @PathVariable("sum") Double sum) {
         return service.buyProductByName(name, sum);
     }
 

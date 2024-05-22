@@ -24,3 +24,7 @@ cloud:
         uri: http://localhost:8090/
         predicates:
           - Path=/warehouseService/**
+      - id: magazineAdvance
+        uri: http://localhost:8080/
+        predicates:
+          - Path=/MS/**
