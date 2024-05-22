@@ -97,13 +97,21 @@ public class MagazineControllerAdapter implements MagazineControllerI {
                 .findFirst()
                 .get();
 
-        if(product != null){
+        ResponseEntity response;
+        if (product != null) {
             basket.add(product);
-            return new ResponseEntity<>(product + "added in basket", HttpStatus.OK);
+            response = new ResponseEntity<>(product + "added in basket", HttpStatus.OK);
+        } else {
+            response = new  ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        try {
+            fileGateWay.reportRequest("BASKET.md", "addProduct: " + response);
+        } catch (Exception e){
+            return new ResponseEntity<>(response.getBody() + "(NOT_LOGGED)", response.getStatusCode());
+        }
 
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return response;
     }
 
     /**
@@ -115,11 +123,20 @@ public class MagazineControllerAdapter implements MagazineControllerI {
     public ResponseEntity delFromBasket(@PathVariable("name") String name) {
         Product temp = basket.delete(name);
 
+        ResponseEntity response;
         if(temp != null){
-            return new ResponseEntity<>(temp + "deleted in basket", HttpStatus.OK);
+            response = new ResponseEntity<>(temp + "deleted in basket", HttpStatus.OK);
+        } else {
+            response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            fileGateWay.reportRequest("BASKET.md", "deleteFromBasket: " + response);
+        } catch (Exception e){
+            return new ResponseEntity<>(response.getBody() + "(NOT_LOGGED)", response.getStatusCode());
+        }
+
+        return response;
     }
 
     /**
@@ -128,7 +145,15 @@ public class MagazineControllerAdapter implements MagazineControllerI {
      */
     @GetMapping("/sumOfBasket")
     public ResponseEntity sumOfBasket() {
-        return new ResponseEntity<>(basket.sum(), HttpStatus.OK);
+        ResponseEntity response = new ResponseEntity<>(basket.sum(), HttpStatus.OK);
+
+        try {
+            fileGateWay.reportRequest("BASKET.md", "sumOfBasket: " + response);
+        } catch (Exception e){
+            return new ResponseEntity<>(response.getBody() + "(NOT_LOGGED)", response.getStatusCode());
+        }
+
+        return response;
     }
 
     /**
@@ -137,7 +162,13 @@ public class MagazineControllerAdapter implements MagazineControllerI {
      */
     @GetMapping("/basketList")
     public ResponseEntity basketList() {
-        return new ResponseEntity<>(basket.viewList(), HttpStatus.NOT_FOUND);
+        ResponseEntity response = new ResponseEntity<>(basket.viewList(), HttpStatus.OK);
+
+        try {
+            fileGateWay.reportRequest("BASKET.md", "basketList: " + response);
+        } catch (Exception e){}
+
+        return response;
     }
 
     /**
@@ -153,7 +184,16 @@ public class MagazineControllerAdapter implements MagazineControllerI {
 
         basket.clear();
 
-        return new ResponseEntity<>("Basket payed!", HttpStatus.OK);
+        ResponseEntity response = new ResponseEntity<>("Basket payed!", HttpStatus.OK);
+
+        try {
+            fileGateWay.reportRequest("BASKET.md", "payBasket: " + response);
+        } catch (Exception e){
+            return new ResponseEntity<>(response.getBody() + "(NOT_LOGGED)", response.getStatusCode());
+        }
+
+
+        return response;
     }
 
 }

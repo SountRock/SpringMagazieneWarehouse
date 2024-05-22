@@ -266,3 +266,11 @@
  ## Was executed for 73 millisecond
 # Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
  ## Was executed for 4 millisecond
+# Method: [void com.example.magazine.service.MagazineService.addProduct(Product)] 
+ ## Was executed for 169 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 26 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 158 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 3 millisecond
