@@ -67,6 +67,11 @@ public class MagazineControllerAdapter implements MagazineControllerI {
         }
     }
 
+    /**
+     * Получить продукт по id
+     * @param id
+     * @return
+     */
     @GetMapping("/prod/{id}")
     public ResponseEntity getProductDataById(@PathVariable("id") Long id) {
         List<Product> temp = magazineController.getAllProduct().getBody();
