@@ -175,17 +175,25 @@ public class MagazineControllerAdapter implements MagazineControllerI {
      * Показать купить содержимое корзины
      * @return
      */
-    @PutMapping("/payBasket")
-    public ResponseEntity payBasket() {
+    @PutMapping("/payBasket/{sum}")
+    public ResponseEntity payBasket(@PathVariable("sum") double sum) {
         List<Product> basketL = basket.viewList();
+        double sumProducts = 0.0;
         for (Product p : basketL) {
-            magazineController.buyById(p.getID(), p.getPrice());
+            sumProducts += p.getPrice();
         }
 
-        basket.clear();
+        ResponseEntity response;
+        if(sum >= sumProducts){
+            for (Product p : basketL) {
+                magazineController.buyById(p.getID(), p.getPrice());
+            }
+            basket.clear();
 
-        ResponseEntity response = new ResponseEntity<>("Basket payed!", HttpStatus.OK);
-
+            response = new ResponseEntity<>("Basket payed! change=" + (sum - sumProducts), HttpStatus.OK);
+        } else {
+            response = new ResponseEntity<>("Basket NOT payed!", HttpStatus.CONFLICT);
+        }
         try {
             fileGateWay.reportRequest("BASKET.md", "payBasket: " + response);
         } catch (Exception e){

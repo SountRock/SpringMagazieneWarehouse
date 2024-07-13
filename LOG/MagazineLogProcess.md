@@ -34,3 +34,11 @@
  ## With args: [chocalate, 900.0]
 # Method End [ResponseEntity com.example.magazine.service.MagazineService.buyProductByName(String,Double)] 
  ## Response: Bought Product(ID=1, name=chocalate, price=700.0) delivery is 200.0
+# Method Start [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## With args: [1, 200.0]
+# Method End [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## Response: Bought Product(ID=1, name=chocolate, price=200.0) delivery is 0.0
+# Method Start [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## With args: [2, 500.0]
+# Method End [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## Response: Bought Product(ID=2, name=orange, price=500.0) delivery is 0.0

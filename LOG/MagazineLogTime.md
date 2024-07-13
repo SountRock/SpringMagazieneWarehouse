@@ -274,3 +274,35 @@
  ## Was executed for 158 millisecond
 # Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
  ## Was executed for 3 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 350 millisecond
+# Method: [void com.example.magazine.service.MagazineService.addProduct(Product)] 
+ ## Was executed for 119 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 43 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 18 millisecond
+# Method: [void com.example.magazine.service.MagazineService.addProduct(Product)] 
+ ## Was executed for 5 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 4 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 9 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 6 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 6 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 5 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 5 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 5 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.getAllProduct()] 
+ ## Was executed for 4 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## Was executed for 225 millisecond
+# Method: [ResponseEntity com.example.magazine.service.MagazineService.buyProduct(Long,Double)] 
+ ## Was executed for 11 millisecond
+# Method: [void com.example.magazine.service.RequestFileGateWay.reportRequest(String,String)] 
+ ## Was executed for 5 millisecond

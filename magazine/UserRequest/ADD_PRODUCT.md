@@ -34,3 +34,7 @@ request3: addProduct: <200 OK OK,product Product(ID=null, name=Hell, price=666.0
 request1: addProduct: <200 OK OK,product Product(ID=null, name=chocalate, price=700.0) successfully received!,[]>
 
 request1: addProduct: <200 OK OK,product Product(ID=null, name=chocalate, price=700.0) successfully received!,[]>
+
+request1: addProduct: <200 OK OK,product Product(ID=null, name=chocolate, price=200.0) successfully received!,[]>
+
+request2: addProduct: <200 OK OK,product Product(ID=null, name=orange, price=500.0) successfully received!,[]>
